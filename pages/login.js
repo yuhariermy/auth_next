@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Layout from "../layout/layout";
 import { images } from "../constants";
 
@@ -11,6 +12,11 @@ import styles from "../styles/Form.module.css";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+
+  // Google Handler Function
+  async function handleGoogleSignin() {
+    signIn("google", { callbackUrl: "http://localhost:3000" });
+  }
   return (
     <div>
       <Layout pageTitle="Homepage">
@@ -59,7 +65,11 @@ const Login = () => {
               </button>
             </div>
             <div className="input-button">
-              <button type="button" className={styles.button_custom}>
+              <button
+                onClick={handleGoogleSignin}
+                type="button"
+                className={styles.button_custom}
+              >
                 Sign in With Google{" "}
                 <Image
                   src={images.google}
