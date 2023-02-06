@@ -1,17 +1,32 @@
 import { useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Layout from "../layout/layout";
-import { images } from "../constants";
-
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
+import { signIn } from "next-auth/react";
+import { useFormik } from "formik";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
+import { images } from "../constants";
+import Layout from "../layout/layout";
+import login_validate from "../lib/validate";
 import styles from "../styles/Form.module.css";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+
+  // formik hook
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validate: login_validate,
+    onSubmit,
+  });
+
+  async function onSubmit(values) {
+    console.log(values);
+  }
 
   // Google Handler Function
   async function handleGoogleSignin() {
@@ -33,24 +48,44 @@ const Login = () => {
             {/* <p className="w-3/4 mx-a text-gray-400">lorem</p> */}
           </div>
 
-          <form className="flex flex-col gap-5">
-            <div className={styles.input_group}>
+          <form onSubmit={formik.handleSubmit} className="flex flex-col gap-5">
+            <div
+              className={`${styles.input_group} ${
+                formik.errors.email && formik.touched.email
+                  ? "border-rose-600"
+                  : ""
+              }`}
+            >
               <input
                 type="email"
                 name="email"
-                placeholder="email"
+                placeholder="Email"
                 className={styles.input_text}
+                {...formik.getFieldProps("email")}
               />
               <span className="icon flex items-center px-4">
                 <HiAtSymbol size={25} />
               </span>
             </div>
-            <div className={styles.input_group}>
+            {/* {formik.errors.email ? (
+              <span className="text-rose-500">{formik.errors.email}</span>
+            ) : (
+              <></>
+            )} */}
+            <div
+              className={`${styles.input_group} ${
+                formik.errors.password && formik.touched.password
+                  ? "border-rose-600"
+                  : ""
+              }`}
+            >
               <input
                 type={`${show ? "text" : "password"}`}
                 name="password"
-                placeholder="password"
+                placeholder="Password"
                 className={styles.input_text}
+                onChange={formik.handleChange}
+                {...formik.getFieldProps("password")}
               />
               <span
                 className="icon flex items-center px-4"
@@ -59,11 +94,18 @@ const Login = () => {
                 <HiFingerPrint size={25} />
               </span>
             </div>
+            {formik.errors.password ? (
+              <span className="text-rose-500">{formik.errors.password}</span>
+            ) : (
+              <></>
+            )}
             <div className="input-button">
               <button type="submit" className={styles.button}>
-                Login
+                Masuk
               </button>
             </div>
+
+            {/* Google Login */}
             <div className="input-button">
               <button
                 onClick={handleGoogleSignin}
@@ -79,7 +121,9 @@ const Login = () => {
                 ></Image>
               </button>
             </div>
-            <div className="input-button">
+
+            {/* Github Login */}
+            {/* <div className="input-button">
               <button type="button" className={styles.button_custom}>
                 Sign in With Github{" "}
                 <Image
@@ -89,13 +133,13 @@ const Login = () => {
                   alt="Google Image"
                 ></Image>
               </button>
-            </div>
+            </div> */}
           </form>
 
           <div className="text-center text-gray-400 ">
-            Dont have an account yet?
+            Belum punya akun?
             <Link href="/register">
-              <p className="text-blue-700"> Sign Up</p>
+              <p className="text-blue-700"> Daftar</p>
             </Link>
           </div>
         </section>
