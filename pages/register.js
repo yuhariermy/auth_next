@@ -9,12 +9,16 @@ import {
 import { useFormik } from "formik";
 import { registerValidate } from "../lib/validate";
 
-import Layout from "../layout/layout";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
+import LayoutAuth from "../layout/layout";
 import styles from "../styles/Form.module.css";
 
 const Register = () => {
   const [show, setShow] = useState({ password: false, cpassword: false });
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -29,12 +33,23 @@ const Register = () => {
   });
 
   async function onSubmit(values) {
-    console.log(values);
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    };
+    await fetch("http://localhost:3000/api/auth/signup", options)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) router.push("http://localhost:3000");
+      });
   }
 
   return (
     <div>
-      <Layout pageTitle="Register">
+      <LayoutAuth pageTitle="Register">
         <section className="w-3/4 mx-auto flex flex-col gap-10">
           <div className="title">
             <h1 className="text-gray-800 text-4xl font-bold py-2">
@@ -169,8 +184,14 @@ const Register = () => {
               </button>
             </div>
           </form>
+          <div className="text-center text-gray-400 ">
+            Sudah punya akun?
+            <Link href="/login">
+              <p className="text-blue-700"> Masuk</p>
+            </Link>
+          </div>
         </section>
-      </Layout>
+      </LayoutAuth>
     </div>
   );
 };

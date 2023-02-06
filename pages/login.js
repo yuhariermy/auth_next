@@ -5,14 +5,16 @@ import { useFormik } from "formik";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { images } from "../constants";
-import Layout from "../layout/layout";
+import LayoutAuth from "../layout/layout";
 import login_validate from "../lib/validate";
 import styles from "../styles/Form.module.css";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const router = useRouter();
 
   // formik hook
   const formik = useFormik({
@@ -25,7 +27,16 @@ const Login = () => {
   });
 
   async function onSubmit(values) {
-    console.log(values);
+    const status = await signIn("credentials", {
+      redirect: false,
+      email: values.email,
+      password: values.password,
+      callbackUrl: "/",
+    });
+
+    console.log(status);
+
+    if (status.ok) router.push(status.url);
   }
 
   // Google Handler Function
@@ -34,7 +45,7 @@ const Login = () => {
   }
   return (
     <div>
-      <Layout pageTitle="Homepage">
+      <LayoutAuth pageTitle="Homepage">
         <section className="w-3/4 mx-auto flex flex-col gap-10">
           <div className="title">
             <h1 className="text-gray-800 text-4xl font-bold py-4">
@@ -138,7 +149,7 @@ const Login = () => {
             </Link>
           </div>
         </section>
-      </Layout>
+      </LayoutAuth>
     </div>
   );
 };

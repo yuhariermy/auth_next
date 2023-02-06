@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "./Layout.module.css";
 
-const Layout = ({ children, pageTitle }) => {
+const LayoutAuth = ({ children, pageTitle }) => {
   return (
     <>
       <Head>
@@ -23,4 +23,4 @@ const Layout = ({ children, pageTitle }) => {
   );
 };
 
-export default Layout;
+export default LayoutAuth;
