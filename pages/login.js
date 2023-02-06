@@ -67,11 +67,6 @@ const Login = () => {
                 <HiAtSymbol size={25} />
               </span>
             </div>
-            {/* {formik.errors.email ? (
-              <span className="text-rose-500">{formik.errors.email}</span>
-            ) : (
-              <></>
-            )} */}
             <div
               className={`${styles.input_group} ${
                 formik.errors.password && formik.touched.password
