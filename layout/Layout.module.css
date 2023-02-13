@@ -6,13 +6,13 @@
 }
 
 .cartoonImg{
-    background: url('/assets/img2.png') no-repeat;
+    background: url('/assets/workstation.jpg') no-repeat;
     position: absolute;
     bottom: 0;left: 0;right: 0;top:0;
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: 65% 100px;
+    /* background-position: 65% 100px; */
     z-index: 1;
 }
 
@@ -55,4 +55,19 @@
     }100%{
         transform: translateX(-250%);
     }
+}
+
+.imgStyle > video {
+    /* padding-top:61px; */
+    position: relative;
+    bottom: 0;left: 0;right: 0;top:0;
+    width: 100%;
+    display: flex;
+    transform: rotate(90deg) scale(2);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    /* background-size: cover; */
+    /* z-index: 999; */
+    /* height: 500px; */
 }

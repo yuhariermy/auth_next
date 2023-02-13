@@ -276,3 +276,32 @@
     transform: rotate(0deg);
   }
 }
+
+
+.codegena > h1 {
+  font-size:40px;
+}
+
+.codegena > h1 > span {
+  color: blue
+}
+
+
+.codegena > p {
+  font-size: 40px;
+}
+
+/* .swiper_slide > img {
+  width: 50px;
+  height: 50px;
+} */
+
+.list_computer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.swiper_slide {
+  margin: 50px;
+}
