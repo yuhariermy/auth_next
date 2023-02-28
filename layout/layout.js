@@ -5,7 +5,7 @@ const LayoutAuth = ({ children, pageTitle }) => {
   return (
     <>
       <Head>
-        <title>WORKSTATION | {pageTitle}</title>
+        <title>Dashboard | {pageTitle}</title>
       </Head>
       <div className="flex h-screen bg-gray-700">
         <div className="m-auto bg-slate-50 rounded-md w-3/5 h-3/4 grid lg:grid-cols-2">

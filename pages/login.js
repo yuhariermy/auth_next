@@ -45,11 +45,11 @@ const Login = () => {
   }
   return (
     <div>
-      <LayoutAuth pageTitle="Homepage">
+      <LayoutAuth pageTitle="Login Page">
         <section className="w-3/4 mx-auto flex flex-col gap-10">
           <div className="title">
             <h1 className="text-gray-800 text-4xl font-bold py-4">
-              WORKSTATION
+              DASHBOARD - LOGIN
               {/* <Image
                 src={images.logo}
                 className={styles.img_logo}
@@ -142,12 +142,13 @@ const Login = () => {
             </div> */}
           </form>
 
-          <div className="text-center text-gray-400 text-2xl ">
+          {/* Register */}
+          {/* <div className="text-center text-gray-400 text-2xl ">
             Belum punya akun?
             <Link href="/register">
               <p className="text-blue-700 text-2xl"> Daftar</p>
             </Link>
-          </div>
+          </div> */}
         </section>
       </LayoutAuth>
     </div>
