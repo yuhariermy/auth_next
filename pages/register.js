@@ -53,7 +53,7 @@ const Register = () => {
         <section className="w-3/4 mx-auto flex flex-col gap-10">
           <div className="title">
             <h1 className="text-gray-800 text-4xl font-bold py-2">
-              BLUEBOX - Register
+              WORKSTATION - Register
               {/* <Image
                 src={images.logo}
                 className={styles.img_logo}
@@ -83,7 +83,7 @@ const Register = () => {
               <></>
             )}
             {/* NIP/NIK */}
-            <div className={styles.input_group}>
+            {/* <div className={styles.input_group}>
               <input
                 type="num"
                 name="num"
@@ -94,7 +94,7 @@ const Register = () => {
               <span className="icon flex items-center px-4">
                 <HiOutlineCreditCard size={25} />
               </span>
-            </div>
+            </div> */}
             {formik.errors.num && formik.touched.num ? (
               <span className="text-rose-500">{formik.errors.num}</span>
             ) : (
@@ -184,10 +184,10 @@ const Register = () => {
               </button>
             </div>
           </form>
-          <div className="text-center text-gray-400 ">
+          <div className="text-center text-gray-400 text-2xl ">
             Sudah punya akun?
             <Link href="/login">
-              <p className="text-blue-700"> Masuk</p>
+              <p className="text-blue-700 text-2xl"> Masuk</p>
             </Link>
           </div>
         </section>
