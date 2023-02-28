@@ -145,12 +145,7 @@ function User({ session, handleSignOut }) {
           </div>
         </div>
         <div className={styles.buttons2}>
-          <button
-            onClick={handleSignOut}
-            className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 bg-gray-50"
-          >
-            Log Out
-          </button>
+          <button onClick={handleSignOut}>Log Out</button>
         </div>
       </div>
     </main>
