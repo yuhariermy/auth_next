@@ -48,8 +48,8 @@ const Login = () => {
       <LayoutAuth pageTitle="Login Page">
         <section className="w-3/4 mx-auto flex flex-col gap-10">
           <div className="title">
-            <h1 className="text-gray-800 text-4xl font-bold py-4">
-              DASHBOARD - LOGIN
+            <h1 className={styles.title}>
+              NEUROBOARD <span>Login</span>
               {/* <Image
                 src={images.logo}
                 className={styles.img_logo}

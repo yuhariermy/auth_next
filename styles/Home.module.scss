@@ -1,6 +1,8 @@
+
 .main {
   width: 100%;
   background-image: url("/assets/background.png");
+  // background-image: url("/assets/backgrounds.jpg");
   background-size: cover;  // max-width: 1600px;
   display: flex;
   flex-direction: column;
@@ -41,6 +43,7 @@
   
   h1 {
     // padding: 4rem 0;
+    // color: #fefefe;
     font-size: 52px;
 
     @media screen and (max-width: 768px) {
@@ -85,7 +88,7 @@
       color: #36395a;
       cursor: pointer;
       display: inline-flex;
-      font-family: "JetBrains Mono", monospace;
+      font-family: "Poppins", monospace;
       height: 108px;
       justify-content: center;
       line-height: 1;

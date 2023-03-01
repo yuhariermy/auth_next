@@ -50,7 +50,7 @@ function User({ session, handleSignOut }) {
   return (
     <main className={styles.main}>
       <div className={styles.center}>
-        <h1>Welcome To Dashboard Divisi QHSE&E</h1>
+        <h1>Welcome To Neuroboard</h1>
         <div className={styles.buttons}>
           {/* <div className={styles.button}>
             {products.map((product) => (
